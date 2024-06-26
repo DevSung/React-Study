@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 
 function InputSample() {
 
@@ -6,6 +6,9 @@ function InputSample() {
         name: '',
         nickName: ''
     });
+
+    // useRef 를 사용하여 ref 를 설정하면, useRef 로 만든 객체 안의 current 값이 실제 엘리먼트를 가리킴
+    const nameInput = useRef();
 
     const {name, nickName} = inputs; // 비구조화 할당을 통해 값 추출
 
@@ -23,11 +26,12 @@ function InputSample() {
             name: '',
             nickName: '',
         })
+        nameInput.current.focus();
     };
 
     return (
         <div>
-            <input name="name" placeholder="이름" onChange={onChange} value={name}/>
+            <input name="name" placeholder="이름" onChange={onChange} value={name} ref={nameInput}/>
             <input name="nickName" placeholder="닉네임" onChange={onChange} value={nickName}/>
             <button onClick={onReset}>초기화</button>
             <div>

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 function Counter() {
-    // [현재 state, state 를 변경하기 위한 함수]
+    // [state, state 를 변경하기 위한 함수]
     const [number, updateNumber] = useState(0);
 
     const onIncrease = () => {
